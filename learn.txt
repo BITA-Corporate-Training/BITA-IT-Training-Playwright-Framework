@@ -1,0 +1,90 @@
+Framework 
+
+
+
+Steps for framework
+
+
+
+Application 
+FrameWork Installation => 
+Setup for =>  Extension [POM], Constants , Test suite
+Mutiple Environment setup
+yaml for github
+secrets in github
+Run in local / github CI
+
+
+Salesforce 
+
+
+
+
+
+npm install playwright => downloading the zip
+
+npx playwright install => unzip the dependencies
+
+
+
+
+
+npm init playwright@latest => framework structure
+
+
+import {LoginClassConstants} from './LoginPageConstants.ts'
+import {SetExtension} from './setExtension.js'
+
+Test suite:
+
+    SetExtension.setTextBoxValue(LoginClassConstants.userNameTextboxPlaceholderText, process.env.user_name);
+
+
+Constants
+
+LoginPageConstants.ts
+
+export class LoginClassConstants{
+    static userNameTextboxPlaceholderText = "EnterUsername"
+    static passwordTextboxPLaceholderText = "password"
+    static loginButtonName = "login"
+
+
+}
+
+.env
+user_name= 'standard_user',
+password= '' 
+
+
+
+Extension: 
+    click,
+    setValue,
+    bool,
+    clear ,
+    getValue
+
+setExtension.ts
+
+    export class SetExtension{
+        async setTextBoxValue(placeholderText, textboxValue){
+            await page.getByPlaceholder(placeholderText).fill(textboxValue);
+        }
+    }
+
+//normal pw code
+await page.GetByPlaceholder("password").Fill("sathish123");
+
+
+Extension - Playwright Code
+Constants - Application Locators [Validation variable, Xpath, Id, Class, Name, etc..]
+
+tests => Test suite => Extensions+ Constant => Test Workflow
+
+
+
+
+
+
+
