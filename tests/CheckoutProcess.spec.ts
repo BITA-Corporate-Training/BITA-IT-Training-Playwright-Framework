@@ -42,7 +42,7 @@ test('Verify Page Url', async()=>{
 
 });
 
-test.skip('Verify Page title', async()=>{
+test('Verify Page title', async()=>{
 
     //Title
     let swagLabProductsScreenTitle =  await page.title();
